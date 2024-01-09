@@ -1,0 +1,19 @@
+{
+  "name": "anagram-api",
+  "version": "1.0.0",
+  "description": "Anagram API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alejandro La Rosa",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}
