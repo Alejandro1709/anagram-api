@@ -1,6 +1,4 @@
 import express, { Request, Response } from 'express';
-import getPermutationCount from './utils/permutation';
-import shuffleWord from './utils/shuffleWord';
 import generateWords from './utils/generateWords';
 
 const app = express();
