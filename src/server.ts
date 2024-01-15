@@ -1,8 +1,17 @@
 import express, { Request, Response } from 'express';
 import generateWords from './utils/generateWords';
+import morgan from 'morgan';
 import { type AnagramResponse } from './types/response';
+import { ENV, PORT } from './config/secrets';
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+if (ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
 app.get('/', (_req: Request, res: Response) => {
   res.status(200).json({ message: 'Ok' });
@@ -41,4 +50,6 @@ app.get('/api/v1/anagrams', async (req: Request, res: Response) => {
   res.status(200).json(result);
 });
 
-app.listen(2024, () => console.log('Server is up and running on port 2024.'));
+app.listen(PORT, () =>
+  console.log(`Server is up and running on port ${PORT}.`)
+);
