@@ -8,7 +8,9 @@ export default function getPermutationCount(word: string) {
   let frequencyCounter: Frequency = {};
   let results = [];
 
-  word = word.replaceAll(' ', '');
+  console.log(word);
+
+  word = word.replace(/\s/g, '');
 
   for (let i = 0; i < word.length; i++) {
     frequencyCounter[word[i]] = frequencyCounter[word[i]]

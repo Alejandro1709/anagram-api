@@ -22,6 +22,9 @@ app.get('/api/v1/anagrams', async (req: Request, res: Response) => {
   const page = parseInt(req.query.page as string) || 1;
   const limit = parseInt(req.query.limit as string) || 60;
 
+  if (q === undefined)
+    return res.status(400).json({ message: 'Invalid query' });
+
   const results = await generateWords(q as string);
 
   const result: AnagramResponse = {};
