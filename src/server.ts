@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import generateWords from './utils/generateWords';
 import morgan from 'morgan';
+import cors from 'cors';
 import { type AnagramResponse } from './types/response';
 import { ENV, PORT } from './config/secrets';
 
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 if (ENV === 'development') {
   app.use(morgan('dev'));
